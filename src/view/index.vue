@@ -6,9 +6,9 @@
 import * as echarts from "echarts";
 import * as topojson from "topojson-client";
 import { onMounted, ref, watch } from "vue";
-import area from "../../data/area";
-import { data } from '../../data/data';
-import map from '../../data/map';
+import area from "../data/area";
+import { data } from '../data/data';
+import map from '../data/map';
 
 /**
  * 动态chart实例

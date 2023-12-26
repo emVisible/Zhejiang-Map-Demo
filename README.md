@@ -1,18 +1,39 @@
-# Vue 3 + TypeScript + Vite
+## 浙江省地图Demo
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> 地图源数据来源于阿里DataV 层级生成器
 
-## Recommended IDE Setup
+基于Vue3+echarts的Demo，实现了数据展示的核心功能。
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- 支持地图下钻到区县
+- 将topojson格式的数据转为，geojson，以echarts渲染
+- 项目内部提供了地图映射数据
 
-## Type Support For `.vue` Imports in TS
+![展示](/_gallery/display.gif)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## 进行二次开发
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```
+安装依赖
+$ pnpm install
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+```
+进入开发模式
+$ pnpm dev
+```
+
+```
+打包
+$ pnpm build
+```
+
+将src/data中的data.ts数据转变为你需要展示的数据即可。
+
+data中的其它文件为原始的地图(base.ts area.ts)和映射文件(map.ts)，一般不需要更改。
+
+---
+
+**数据及API参考：**
+
+- **echats相关API: https://echarts.apache.org/zh/option.html#geo**
+- **阿里DataV: https://datav.aliyun.com/portal/school/atlas/level_generator**

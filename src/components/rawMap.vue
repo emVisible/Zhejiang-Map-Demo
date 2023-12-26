@@ -9,6 +9,7 @@ import * as topojson from "topojson-client";
 import { onMounted, ref } from "vue";
 import area from "../data/area";
 import map from '../data/map';
+// 原始地图数据
 
 /**
  * 动态chart实例
@@ -18,13 +19,11 @@ const chartRef = ref<echarts.ECharts | null>(null);
  * 异步初始化, 防止在DOM挂载之前进行绑定
 */
 onMounted(async () => {
-  setTimeout(() => {
-    init()
-  }, 1000)
+    await init()
 })
 
 /**
- * 地图数据转换与处理: topoJson => geoJson
+ * 地图数据转换与处理: 将topoJson格式转为geoJson格式
 */
 function handleData() {
   // 导入的地图数据
@@ -55,7 +54,7 @@ function handleData() {
 /**
  * 初始化
 */
-function init() {
+async function init() {
   const ZhejiangProvince = handleData()
   // 注册根区域: 浙江省
   echarts.registerMap("浙江省", ZhejiangProvince);

@@ -1,3 +1,6 @@
+/**
+ * 模拟从后台接收的数据
+*/
 export const data = [
   {
     name: "浙江省",
